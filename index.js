@@ -13,8 +13,13 @@ app.use(
 
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
 require("./startup/routes")(app);
 require("./startup/db")();
+require("./startup/prod")(app);
 
 // PORT
 const port = process.env.PORT || 3001;
