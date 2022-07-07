@@ -48,7 +48,7 @@ const App = () => {
     setTodos(todos.concat(post));
   };
 
-  // Handle update todo app
+  // Handle update todo app .. 
   const handleUpdate = async (todo) => {
     todo.title = "To-do";
     await axios.put(apiEndPoint + "/" + todo._id, { title: todo.title });
